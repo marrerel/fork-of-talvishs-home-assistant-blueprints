@@ -164,6 +164,7 @@ variables:
     {%- else -%}
       {{ lang_hack }}
     {%- endif -%}
+  tts_target_entity_id: !input tts_target_entity_id
   # the state delay is used for forcing a wait after key state changes
   # since the Sonos integration seems to report state too early which can cause
   # audio being cut-off or volume changes being heard that shouldn't be.
