@@ -34,6 +34,14 @@ blueprint:
       default: "google_translate_say"
       selector:
         text:
+    tts_target_entity_id:
+      name: Text-to-speech target
+      description:
+        If 'speak' was chosen as the TTS service name, a target must be provided. The default is
+        piper.
+      default: "tts.piper"
+      selector:
+        text:
     tts_language:
       name: Language
       description: The language to use with the text-to-speech service.
@@ -235,6 +243,8 @@ sequence:
       entity_id: "{{ entity_group_leader }}"
       message: "{{ message }}"
       language: "{{ tts_language }}"
+    target:
+      entity_id: "{{ tts_target_entity_id }}"
 
   # not sure why, but setting the repeat doesn't always properly take
   # I can see it changing in the state  when the TTY goes the repeat
